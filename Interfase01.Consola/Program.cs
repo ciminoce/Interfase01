@@ -20,6 +20,21 @@ namespace Interfase01.Consola
             Cuervo cuervo = new Cuervo("Corvacho");
             Console.WriteLine(cuervo.EnviarMensaje());
             Console.WriteLine(((IEncriptado)cuervo).EnviarMensaje());
+            //Codigo agregado
+            List<IMensaje> lista = new List<IMensaje>();
+            lista.Add(c);
+            lista.Add(p);
+            lista.Add(carta);
+            lista.Add(cuervo);
+            foreach (var mensajero in lista)
+            {
+                Console.WriteLine(mensajero.EnviarMensaje());
+                if (mensajero is Cuervo cur)
+                {
+                    Console.WriteLine(((IEncriptado)cur).EnviarMensaje());
+                }
+            }
+
             Console.ReadLine();
         }
     }
